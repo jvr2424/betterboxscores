@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+    <body>
+        {% for game in games %}
+
+        <h1>{{ game.away }} vs {{ game.home }} </h1>
+        <h2>{{ game.awayscore }} - {{ game.homescore }}</h2>
+        <div class="container">
+            <div class="row">
+              <div class="col">
+                {{ game.awayTable }}
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <img src='{{ game.awayshots }}' width="700">
+                </div>
+                <div class="col-sm-6">
+                    <img src='{{ game.awayrotaion }}' width="700">
+                </div>
+              </div>
+            <div class="row">
+              <div class="col">
+                {{ game.homeTable }}
+              </div>
+                <div class="col-sm-6">
+                    <img src='{{ game.homeshots }}' width="700">
+                </div>
+                <div class="col-sm-6">
+                    <img src='{{ game.homerotaion }}' width="700">
+                </div>
+            </div>
+        </div>
+
+        
+        
+
+        {% endfor %}
+    </body>
+</html>
