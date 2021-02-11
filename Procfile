@@ -1,0 +1,1 @@
+web: gunicorn betterboxscores.betterboxscores.wsgi
