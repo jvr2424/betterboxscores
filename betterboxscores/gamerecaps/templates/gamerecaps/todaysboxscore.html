@@ -1,0 +1,15 @@
+{% extends 'gamerecaps/base.html' %}
+{% load static %}
+{% block content %}
+    <div all-data="{{ box_score }}">
+
+    </div>
+
+    <script>
+        var data = document.querySelector('div[all-data]');
+        var data_string = data.getAttribute('all-data');
+        console.log(data_string.replace(/'/g,'"'));
+        json_data = JSON.parse(data_string.replace(/'/g,'"'));
+        console.log(json_data);
+    </script>
+{% endblock %}

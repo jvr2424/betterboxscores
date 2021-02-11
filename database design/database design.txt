@@ -1,0 +1,166 @@
+//https://dbdiagram.io/d
+//// -- LEVEL 1
+//// -- Tables and References
+
+// Creating tables
+Table players as P {
+  player_id int [pk] 
+  first_name varchar
+  last_name varchar
+  team_id varchar
+}
+
+Table teams {
+  team_id int [pk]
+  name varchar
+  city varchar
+ }
+
+// Creating references
+// You can also define relaionship separately
+// > many-to-one; < one-to-many; - one-to-one
+Ref: P.team_id > teams.team_id  
+
+Table TeamGameResults {
+  game_id int [pk]
+  team_id int [pk]
+  season varchar
+  date datetime
+  score int
+  rebounds int
+  offensive_rebounds int
+  defensive_rebounds int
+  assists int
+  rim_assists int
+  turnovers int
+  live_turnovers int
+  free_throws_made int
+  free_throws_attempted int
+  field_goals_made int
+  field_goals_attempted int
+  threes_made int
+  threes_attempted int
+  rim_attempted int
+  rim_made int
+  possessions int
+  true_shooting_pct double
+  effective_field_goal_pct double
+  rebound_pct double
+}
+
+Ref: TeamGameResults.team_id > teams.team_id  
+
+Table PlayerGameResults {
+  game_id int [pk]
+  team_id int
+  player_id int [pk]
+  date datetime
+  season varchar
+  score int
+  rebounds int
+  offensive_rebounds int
+  defensive_rebounds int
+  assists int
+  rim_assists int
+  turnovers int
+  live_turnovers int
+  free_throws_made int
+  free_throws_attempted int
+  field_goals_made int
+  field_goals_attempted int
+  threes_made int
+  threes_attempted int
+  rim_attempted int
+  rim_made int
+  possessions int
+  true_shooting_pct double
+  effective_field_goal_pct double
+  rebound_pct double
+}
+Ref: PlayerGameResults.game_id > TeamGameResults.game_id
+Ref: PlayerGameResults.team_id > TeamGameResults.team_id  
+Ref: PlayerGameResults.team_id > teams.team_id
+
+Table LeagueAverageTotals {
+  season varchar
+  points int
+  rebounds int
+  offensive_rebounds int
+  defensive_rebounds int
+  assists int
+  rim_assists int
+  turnovers int
+  live_turnovers int
+  free_throws_made int
+  free_throws_attempted int
+  field_goals_made int
+  field_goals_attempted int
+  threes_made int
+  threes_attempted int
+  rim_attempted int
+  rim_made int
+  possessions int
+  true_shooting_pct double
+  effective_field_goal_pct double
+  rebound_pct double
+}
+Table Standings {
+  team_id int [pk]
+  wins int
+  losses int
+  seed int
+  season varchar
+}
+Ref: Standings.team_id > teams.team_id
+
+Table TeamTotals {
+  season varchar
+  team_id int [pk]
+  score int
+  rebounds int
+  offensive_rebounds int
+  defensive_rebounds int
+  assists int
+  rim_assists int
+  turnovers int
+  live_turnovers int
+  free_throws_made int
+  free_throws_attempted int
+  field_goals_made int
+  field_goals_attempted int
+  threes_made int
+  threes_attempted int
+  rim_attempted int
+  rim_made int
+  possessions int
+  true_shooting_pct double
+  effective_field_goal_pct double
+  rebound_pct double
+}
+Ref: TeamTotals.team_id > teams.team_id
+Table PlayerTotals {
+  season varchar
+  team_id int
+  player_id int [pk]
+  date datetime
+  score int
+  rebounds int
+  offensive_rebounds int
+  defensive_rebounds int
+  assists int
+  rim_assists int
+  turnovers int
+  live_turnovers int
+  free_throws_made int
+  free_throws_attempted int
+  field_goals_made int
+  field_goals_attempted int
+  threes_made int
+  threes_attempted int
+  rim_attempted int
+  rim_made int
+  possessions int
+  true_shooting_pct double
+  effective_field_goal_pct double
+  rebound_pct double
+}

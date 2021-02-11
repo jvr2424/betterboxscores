@@ -1,0 +1,46 @@
+{% extends 'gamerecaps/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <h4 class="display-4 text-center">
+            <small class="text-muted text-center">{{ game.away.game_date }}</small>
+        </h4>
+        <h1 class="display-1 text-center"><img class="team_logo" team_id="{{ game.away.team.team_id }}" id="{{ game.away.team.abbr_name }}"></img> vs <img class="team_logo" team_id="{{ game.home.team.team_id }}" id="{{ game.home.team.abbr_name }}"></img></h1>
+        <h2 class="display-2 text-center" away_team_id="{{ game.away.team.team_id }}" home_team_id="{{ game.home.team.team_id }}">{{ game.away.score }} - {{ game.home.score }}</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+          <div id="away_grid" class="ag-theme-alpine" style="width:100%;">
+
+          </div>
+        </div>
+        <div class="row mt-5">
+            <div id="home_grid" class="ag-theme-alpine" style="width:100%;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="{% static game.away.shot_chart_location %}" width="600">
+            </div>
+            <div class="col-sm-6">
+                <img src='{% static game.home.shot_chart_location %}' width="600">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src='{% static game.away.rotation_chart_location %}' width="600">
+            </div>
+            <div class="col-sm-6">
+                <img src='{% static game.home.rotation_chart_location %}' width="600">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <script src="{% static '/gamerecaps/populate_chart.js' %}"></script>
+    <script src="{% static '/gamerecaps/getLogo.js' %}"></script> -->
+    <script src="{% static '/gamerecaps/static/populate_chart.js' %}"></script>
+    <script src="{% static '/gamerecaps/static/getLogo.js' %}"></script>
+
+
+{% endblock %}

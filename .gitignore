@@ -2,4 +2,9 @@
 bbs_env/
 game_data/
 __pycache__/
-
+.ipynb_checkpoints/
+jupyter notebooks/
+info.txt
+db.sqlite3
+*.csv
+*.png
