@@ -6,6 +6,7 @@ import sqlalchemy
 import os
 
 # run with python manage.py create_game_data
+# https://simpleisbetterthancomplex.com/tutorial/2018/08/27/how-to-create-custom-django-management-commands.html#cron-job
 class Command(BaseCommand):
     help = 'collects last nights games'
 

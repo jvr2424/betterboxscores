@@ -74,7 +74,7 @@ function addLogoToGrid(event){
 
 async function get_data() {
     var game_id = window.location.href.split('/').slice(-1)[0];
-    var endpoint = 'http://127.0.0.1:8000/api/games-players/';
+    var endpoint = '/api/games-players/';
     endpoint = endpoint + game_id;
     console.log(endpoint);
     const response = await fetch(endpoint);
