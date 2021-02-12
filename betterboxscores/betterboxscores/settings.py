@@ -26,7 +26,7 @@ SECRET_KEY = '%0pczc6erl@64djr6006zm45*v_1of$3+bn16ezj2p=in9s8ze'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://betterboxscores.herokuapp.com']
 
 # Application definition
 
