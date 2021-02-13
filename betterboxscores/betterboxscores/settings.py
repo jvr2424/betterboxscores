@@ -167,4 +167,4 @@ STATIC_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-django_heroku.settings(locals())
+django_heroku.settings(locals(), staticfiles=False)
