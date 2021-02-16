@@ -80,7 +80,6 @@ class PlayerGameResults:
         df['field_goals_attempted'] = df['FG2A'].astype(int) + df['FG3A'].astype(int)
         df['field_goals_made'] = df['FG2M'].astype(int) + df['FG3M'].astype(int)
 
-
         # add in plus_minus and starters from NBA API
         box_json = boxscoretraditionalv2.BoxScoreTraditionalV2(self.game_id)
         box_data = json.loads(box_json.get_json())
@@ -322,9 +321,9 @@ def collect_and_write_data(con, date=None, season=None):
 
         # create box score --> writes to playergame results table
         away_player_results = PlayerGameResults(con=con, game_id=game_id, team_id=away_team_id, game_date=game_date,
-                                      season=season, is_home=False)
+                                                season=season, is_home=False)
         home_players_results = PlayerGameResults(con=con, game_id=game_id, team_id=home_team_id, game_date=game_date,
-                                      season=season, is_home=True)
+                                                 season=season, is_home=True)
 
         away_player_results.create_player_box_score(away_player_df)
         home_players_results.create_player_box_score(home_player_df)
@@ -345,14 +344,14 @@ def collect_and_write_data(con, date=None, season=None):
         awayrotaion, homerotation = buildrotation.build_rotation(game_id, game_data['away_team_abbreviation'],
                                                                  game_data['home_team_abbreviation'], save_path)
 
-
-        #create team box score
+        # create team box score
         away_team_results = TeamGameResults(con=con, game_id=game_id, team_id=away_team_id, game_date=game_date,
                                             season=season, is_home=False)
         home_team_results = TeamGameResults(con=con, game_id=game_id, team_id=home_team_id, game_date=game_date,
                                             season=season, is_home=True)
         away_team_results.create_team_box_score(away_team_df, awayrotaion, away_shots_save_path)
         home_team_results.create_team_box_score(home_team_df, homerotation, home_shots_save_path)
+
 
 if __name__ == '__main__':
     collect_and_write_data()
