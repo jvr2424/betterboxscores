@@ -28,7 +28,8 @@ def collect_new_bballref_players(existing_players):
                        'player_link': data[0].a.attrs['href']}
         for stat in data:
             if stat.attrs['data-stat'] == 'team_id':
-                # if player changed teams navigate to their palyer page and grab the last team entry in their per game table
+                # if player changed teams navigate to their palyer page and grab the last team entry in their per
+                # game table
                 if stat.text == 'TOT':
                     player_page = requests.get(f'https://www.basketball-reference.com/{player_data["player_link"]}')
                     soup = BeautifulSoup(player_page.content, 'lxml')
@@ -75,7 +76,7 @@ def fuzzy_match_players(new_bball_ref_players_df, new_nba_players):
 
 
 def collect_new_players(existing_players, nba_players_df):
-    new_nba_players = nba_players_df[~nba_players_df['RowId'].isin(existing_players['player_id'])].copy()
+    new_nba_players = nba_players_df[~nba_players_df['RowId'].astype(int).isin(existing_players['player_id'])].copy()
     new_bball_ref_players_df = collect_new_bballref_players(existing_players)
     df_matches = fuzzy_match_players(new_bball_ref_players_df, new_nba_players)
     # merge on the NBA Team Information
@@ -108,7 +109,7 @@ def add_new_players(con):
 
     if nba_players_df.shape[0] > existing_players.shape[0]:
         mapped_new_players = collect_new_players(existing_players, nba_players_df)
-        write_new_players_to_db(mapped_new_players)
+        write_new_players_to_db(mapped_new_players, con)
     else:
         print('no new players today')
 
