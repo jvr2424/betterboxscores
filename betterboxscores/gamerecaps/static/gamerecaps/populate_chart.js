@@ -153,7 +153,7 @@ async function get_data() {
         efg: parseFloat(playerX.effective_field_goal_pct),
         ts: parseFloat(playerX.true_shooting_pct),
         to: playerX.turnovers,
-        usg: 'coming soon',
+        usg: playerX.usage_pct,
         ast: playerX.assists,
         rim_ast: playerX.rim_assists,
         reb: playerX.rebounds,
