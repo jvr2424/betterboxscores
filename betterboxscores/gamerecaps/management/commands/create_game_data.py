@@ -4,6 +4,7 @@ from custommodules import buildboxscore
 from custommodules import etldataload
 import sqlalchemy
 import os
+from datetime import datetime
 
 # run with python manage.py create_game_data
 class Command(BaseCommand):
@@ -12,7 +13,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Add yout logic here
         # This is the task that will be run
-        #f'postgresql://{user}:{password}@{address}/BetterBoxScores'
+        #f'postgresql://{user}:{password}@{address}/BetterBoxScores
+        print(f"Starting load of yesterdays games at {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
+
         engine = sqlalchemy.create_engine(os.environ.get('DATABASE_URL'))
         con = engine.connect()
 
@@ -59,4 +62,4 @@ class Command(BaseCommand):
             # home_box_html = models.CharField(max_length=10000000000)
             # date = models.DateField()
 
-        self.stdout.write(f"Done")
+        self.stdout.write(f"Done loading yesterdays games at {datetime.now().strftime('%d/%m/%Y %H:%M:%S')}")
