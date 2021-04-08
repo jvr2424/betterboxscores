@@ -8,6 +8,17 @@
         <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
         <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css">
+        <style>
+          .grid-ish {
+              display: flex !important;
+              flex-wrap: wrap !important;
+          }
+  
+          .grid-ish > * {
+              flex: 1 1 15em !important;
+          }
+  
+       </style>
         {% load static %}
     </head>
     <body>

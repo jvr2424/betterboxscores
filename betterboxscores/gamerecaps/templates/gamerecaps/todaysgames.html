@@ -20,18 +20,14 @@
 
 <div class="container">
     <div class="card-deck mb-3 text-center">
-{% for game in games %}
+<!-- {% for game in games %}
 {% if  forloop.counter == 1 %}
-    <!--<div  class="row">
-    <div class="container">
-    -->
+    
 {% elif  forloop.counter|add:"-1"|divisibleby:3 %}
-    <!--<div  class="row">
-    <div class="container">
-    -->
-{% endif %}
+    
+{% endif %} -->
 
-        <div class="card mb-4 shadow-sm">
+        <div class="card mb-4 shadow-sm grid-ish">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">
               <img class="team_logo" team_id="{{ game.awayTeam.teamId }}" src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/{{ game.awayTeam.teamTricode|lower }}.gif" width="60" height="48"></img> 
@@ -103,25 +99,19 @@
           </div>
         </div>
 
-  {% if forloop.last  %}
-    <!--  </div>
-    </div>
-    -->
-    {% elif  forloop.counter|divisibleby:2 %}
-        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
-        {% if  forloop.counter|divisibleby:4 %}
-        <div class="w-100 d-none d-lg-block d-xl-none"><!-- wrap every 4 on lg--></div>
-        {% endif %}
-{% elif  forloop.counter|divisibleby:3 %}
-        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
-    <!--</div>
-    </div>
-    -->
-{% elif  forloop.counter|divisibleby:5 %}
+  <!-- {% if forloop.last  %}
+    {% elif  forloop.counter|divisibleby:2 %} -->
+        <!-- <div class="w-100 d-none d-sm-block d-md-none"></div> --><!-- wrap every 2 on sm-->
+        <!-- {% if  forloop.counter|divisibleby:4 %} -->
+        <!-- <div class="w-100 d-none d-lg-block d-xl-none"></div> --><!-- wrap every 4 on lg-->
+        <!-- {% endif %}
+{% elif  forloop.counter|divisibleby:3 %} -->
+        <!-- <div class="w-100 d-none d-md-block d-lg-none"></div> --><!-- wrap every 3 on md-->
+<!-- {% elif  forloop.counter|divisibleby:5 %} -->
         <!-- wrap every 5 on xl-->
-        <div class="w-100 d-none d-xl-block"></div>
+        <!-- <div class="w-100 d-none d-xl-block"></div>
 {% endif %}
-{% endfor %}
+{% endfor %} -->
 </div>
 </div>
 
