@@ -19,7 +19,7 @@
 
 
 <div class="container">
-    <div class="card-deck mb-3 text-center">
+    <div class="card-deck mb-3 text-center grid-ish">
 <!-- {% for game in games %}
 {% if  forloop.counter == 1 %}
     
@@ -27,7 +27,7 @@
     
 {% endif %} -->
 
-        <div class="card mb-4 shadow-sm grid-ish">
+        <div class="card mb-4 shadow-sm">
           <div class="card-header">
             <h4 class="my-0 font-weight-normal">
               <img class="team_logo" team_id="{{ game.awayTeam.teamId }}" src="https://www.nba.com/.element/img/1.0/teamsites/logos/teamlogos_80x64/{{ game.awayTeam.teamTricode|lower }}.gif" width="60" height="48"></img> 
